@@ -3,11 +3,13 @@
   <div class="bank-inner">
     <div class="bank-header flex-align-center ">
       <div class="bank-color-circle" [style.background-color]="bankColor"></div>
-      <input type="text" class="bank-name" placeholder="Bankname" [(ngModel)]="bank.name"
-        (input)="onBankDetailsChanged()" />
+      <div class="bank-name-wrapper" [class.is-focused]="isBankNameFocused" [attr.data-recommendated-bank-name]="recommendatedBankName">
+        <input type="text" class="bank-name" placeholder="Bankname" [(ngModel)]="bank.name" (input)="onBankNameChanged()" (focus)="onBankNameFocus(true)" (blur)="onBankNameFocus(false)" (keydown)="onBankNameKeyDown($event)"/>
+      </div>
+
     </div>
     <div class="bank-subheader">
-      <input type="text" class="bank-description" placeholder="individuelle Bezeichnung" [(ngModel)]="bank.individualName"
+      <input type="text" class="bank-description" placeholder="individuelle Bezeichnung hinzufügen" [(ngModel)]="bank.individualName"
         (input)="onBankDetailsChanged()" />
     </div>
 

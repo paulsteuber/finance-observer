@@ -26,4 +26,37 @@
 }
 .bank-name {
   font-size: 1.75rem;
+  font-weight: 300;
+}
+.bank-name-wrapper {
+  font-size: 1.75rem;
+  font-weight: 300;
+  position: relative;
+
+  &.is-focused::after {
+    opacity: 25%;
+  }
+
+  &::after {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    content: attr(data-recommendated-bank-name);
+    padding: 3px 4px;
+    opacity: 0;
+    transition: all 0.3s ease-in;
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+.bank-description {
+  font-weight: 700;
+  min-width: 300px;
+  font-size: 1rem;
+  &:placeholder-shown {
+    font-weight: 300;
+    font-size: 0.75rem;
+  }
 }

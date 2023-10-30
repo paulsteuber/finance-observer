@@ -37,7 +37,7 @@
       "color": "#000000"
     },
     {
-      "name": "TARGOBANK",
+      "name": "Targobank",
       "color": "#ED1C24"
     },
     {
@@ -83,6 +83,14 @@
     {
       "name": "Vivid",
       "color": "#8a47f6"
+    },
+    {
+      "name": "PayPal",
+      "color": "#003087"
+    },
+    {
+      "name": "Amazon",
+      "color": "#ff9900"
     }
   ]
 }

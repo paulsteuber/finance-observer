@@ -25,7 +25,6 @@ export class BanklistComponent {
 
   updateBankDetails(index: number, bank: Bank) {
     this.banks[index] = bank;
-    console.log('UPDATE');
 
     this.somethingChanged.emit(this.banks);
   }

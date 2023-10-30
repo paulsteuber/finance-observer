@@ -15,14 +15,51 @@ export class BankComponent implements OnInit {
 
   allBanks = jsonAllBanks;
   bankColor = 'transparent';
+  recommendatedBankName = '';
+  isBankNameFocused: boolean = false;
 
   constructor() {
     this.bank = {} as Bank;
   }
+  onBankNameFocus(isFocused: boolean) {
+    this.isBankNameFocused = isFocused;
+  }
 
+  onBankNameKeyDown(event: KeyboardEvent) {
+    if (
+      this.isBankNameFocused &&
+      this.recommendatedBankName.length &&
+      event.code === 'Tab'
+    ) {
+      this.bank.name = this.recommendatedBankName;
+      this.onBankDetailsChanged();
+    }
+  }
   onBankDetailsChanged() {
     this.updatedBankColor();
     this.bankDetailsChanged.emit(this.bank);
+  }
+
+  onBankNameChanged() {
+    // Bank Name Recommendations
+    const currentInputLength = this.bank.name.length;
+    if (currentInputLength < 2) {
+      this.recommendatedBankName = '';
+      return;
+    }
+
+    const matchedBanks = this.allBanks.banks.filter(
+      (allBank) =>
+        allBank.name.toLowerCase().includes(this.bank.name.toLowerCase()) &&
+        allBank.name.length > this.bank.name.length
+    );
+
+    this.recommendatedBankName = matchedBanks.length
+      ? matchedBanks[0].name
+      : '';
+    console.log('Recommended Bank Name: ' + this.recommendatedBankName);
+
+    this.onBankDetailsChanged();
   }
 
   updatedBankColor() {
