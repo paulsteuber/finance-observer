@@ -1,0 +1,5 @@
+<button class="add-new-bank" (click)="addNewBank()">Bank hinzufügen</button>
+<div class="banklist" >
+  <app-bank *ngFor="let bank of banks; let i = index" [bank]="bank" [index]="i"  (bankDetailsChanged)="updateBankDetails(i, $event)"/>
+</div>
+<hr>

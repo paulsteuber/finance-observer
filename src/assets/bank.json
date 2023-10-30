@@ -1,0 +1,88 @@
+{
+  "banks": [
+    {
+      "name": "Commerzbank",
+      "color": "#f4ca00"
+    },
+    {
+      "name": "Deutsche Bank",
+      "color": "#000195"
+    },
+    {
+      "name": "Postbank",
+      "color": "#ffcc00"
+    },
+    {
+      "name": "DZ Bank",
+      "color": "#0071BC"
+    },
+    {
+      "name": "ING-DiBa",
+      "color": "#FF5900"
+    },
+    {
+      "name": "KfW Bank",
+      "color": "#00913F"
+    },
+    {
+      "name": "N26",
+      "color": "#36a18b"
+    },
+    {
+      "name": "HypoVereinsbank (UniCredit)",
+      "color": "#004481"
+    },
+    {
+      "name": "Comdirect Bank",
+      "color": "#000000"
+    },
+    {
+      "name": "TARGOBANK",
+      "color": "#ED1C24"
+    },
+    {
+      "name": "Santander Bank",
+      "color": "#00529B"
+    },
+    {
+      "name": "Sparda-Bank",
+      "color": "#F7931E"
+    },
+    {
+      "name": "Landesbank Baden-Württemberg (LBBW)",
+      "color": "#A2AAAD"
+    },
+    {
+      "name": "Consorsbank",
+      "color": "#0cbed0"
+    },
+    {
+      "name": "BNP Paribas",
+      "color": "#00AEEF"
+    },
+    {
+      "name": "Raiffeisenbank",
+      "color": "#00519B"
+    },
+    {
+      "name": "Barclays Bank",
+      "color": "#00A646"
+    },
+    {
+      "name": "Citibank",
+      "color": "#005CBF"
+    },
+    {
+      "name": "Raiffeisen Landesbank Oberösterreich (RLBOÖ)",
+      "color": "#0089D0"
+    },
+    {
+      "name": "Hypo Tirol Bank",
+      "color": "#003366"
+    },
+    {
+      "name": "Vivid",
+      "color": "#8a47f6"
+    }
+  ]
+}

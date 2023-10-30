@@ -1,1 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@500;700&display=swap");
 /* You can add global styles to this file, and also import other style files */
+html {
+  font-family: Rubik;
+  font-weight: 500;
+}
+.flex-align-center {
+  display: flex;
+  align-items: center;
+}
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+input {
+  font-family: Rubik;
+}
+input[type="text"]:not(:focus) {
+  border-color: transparent;
+  background-color: transparent;
+}

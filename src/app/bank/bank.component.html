@@ -1,0 +1,27 @@
+<div class="bank">
+  <div class="bank-background-layer" [style.background-color]="bankColor"></div>
+  <div class="bank-inner">
+    <div class="bank-header flex-align-center ">
+      <div class="bank-color-circle" [style.background-color]="bankColor"></div>
+      <input type="text" class="bank-name" placeholder="Bankname" [(ngModel)]="bank.name"
+        (input)="onBankDetailsChanged()" />
+    </div>
+    <div class="bank-subheader">
+      <input type="text" class="bank-description" placeholder="individuelle Bezeichnung" [(ngModel)]="bank.individualName"
+        (input)="onBankDetailsChanged()" />
+    </div>
+
+    <div class="bank-status">
+      <span class="current-amount">
+        {{ "2333" | currency: "EUR"}}
+      </span>
+      <span class="last-date"></span>
+
+      <div class="history flex-between">
+        <span class="highest-amount">{{ "12333" | currency: "EUR"}}</span>
+        <span class="opened-since">{{ "2023-11-01" | date}}</span>
+      </div>
+    </div>
+  </div>
+
+</div>

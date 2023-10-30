@@ -1,0 +1,14 @@
+.import-button {
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr;
+  padding: 0;
+  border-width: 0;
+  > * {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  input {
+    opacity: 0;
+  }
+}
