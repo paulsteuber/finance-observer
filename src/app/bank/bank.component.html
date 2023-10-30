@@ -4,8 +4,9 @@
     <div class="bank-header flex-align-center ">
       <div class="bank-color-circle" [style.background-color]="bankColor"></div>
       <div class="bank-name-wrapper" [class.is-focused]="isBankNameFocused" [attr.data-recommendated-bank-name]="recommendatedBankName">
-        <input type="text" class="bank-name" placeholder="Bankname" [(ngModel)]="bank.name" (input)="onBankNameChanged()" (focus)="onBankNameFocus(true)" (blur)="onBankNameFocus(false)" (keydown)="onBankNameKeyDown($event)"/>
+        <input type="text" class="bank-name" placeholder="Name der Bank" [(ngModel)]="bank.name" (input)="onBankNameChanged()" (focus)="onBankNameFocus(true)" (blur)="onBankNameFocus(false)" (keydown)="onBankNameKeyDown($event)"/>
       </div>
+      <button class="delete fo-button fo-warning" (click)="openDeleteBankModal()">Delete Bank</button>
 
     </div>
     <div class="bank-subheader">
@@ -23,6 +24,10 @@
         <span class="highest-amount">{{ "12333" | currency: "EUR"}}</span>
         <span class="opened-since">{{ "2023-11-01" | date}}</span>
       </div>
+    </div>
+
+    <div class="add-monthly-amount-wrapper">
+      <button class="amount-update-button fo-button" (click)="openAmountUpdater()">Kontostand aktualisieren</button>
     </div>
   </div>
 

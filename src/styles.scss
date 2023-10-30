@@ -3,6 +3,20 @@
 html {
   font-family: Rubik;
   font-weight: 500;
+  background-color: rgb(240, 240, 240);
+  color: #181818;
+  margin: 0;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+main {
+  position: relative;
+  display: grid;
+  padding-top: 6rem;
 }
 .flex-align-center {
   display: flex;
@@ -18,4 +32,31 @@ input {
 input[type="text"]:not(:focus) {
   border-color: transparent;
   background-color: transparent;
+}
+
+.blured {
+  pointer-events: none;
+  filter: blur(3px);
+}
+
+.fo-button {
+  padding: 0.75rem 1.5rem;
+  background-color: #2687ad;
+  color: white;
+  font-family: Rubik;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 5px 10px 2px rgba(0, 0, 0, 0.1);
+  transition: all 0.15s ease-in-out;
+  &:hover {
+    box-shadow: 0 5px 15px 2px rgba(0, 0, 0, 0.2);
+  }
+}
+.fo-button.fo-secondary {
+  background-color: #e8eaed;
+  color: #181818;
+}
+.fo-button.fo-warning {
+  background-color: rgb(182, 69, 69);
 }

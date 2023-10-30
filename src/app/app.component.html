@@ -1,12 +1,18 @@
 <main>
-  <div class="app-header flex-between">
-    <button type="button" class="import-button"><span>Importieren</span>
-      <input type="file" (change)="importJSON($event)">
-    </button>
-
-    <button type="download" (click)="downloadJSON()">Exportieren</button>
+  <div class="app-header">
+    <div class="import-wrapper">
+      <button type="button" class="import-button fo-button"
+        [class.fo-secondary]="userBankData.length"><span>Importieren</span>
+        <input type="file" (change)="importJSON($event)">
+      </button>
+    </div>
+    <div class="page-logo-wrapper">
+      <div class="page-logo">finance_observer</div>
+    </div>
+    <div class="export-wrapper">
+      <button class="fo-button" type="download" (click)="downloadJSON()" [class.fo-secondary]="!userBankData.length">Exportieren</button>
+    </div>
   </div>
-
   <app-banklist [userBankData]="userBankData"
 (somethingChanged)="updateLocalStorage($event)"/>
 </main>

@@ -1,5 +1,10 @@
-<button class="add-new-bank" (click)="addNewBank()">Bank hinzufügen</button>
-<div class="banklist" >
-  <app-bank *ngFor="let bank of banks; let i = index" [bank]="bank" [index]="i"  (bankDetailsChanged)="updateBankDetails(i, $event)"/>
-</div>
-<hr>
+  <div class="banklist-container">
+    <button class="add-new-bank fo-button" (click)="addNewBank()" [class.blured]="deleteBankIndex !== null || updatingBankIndex !== null">Bank hinzufügen</button>
+    <div class="banklist" [class.blured]="deleteBankIndex !== null || updatingBankIndex !== null">
+      <app-bank *ngFor="let bank of banks; let i = index" [bank]="bank" [index]="i"
+        (bankDetailsChanged)="updateBankDetails(i, $event)"  (deleteBankModal)="openDeleteBankModal(i)" (openAmountUpdaterModal)="openAmountUpdater(i)"/>
+    </div>
+    <app-delete-bank [class.hide]="deleteBankIndex === null" class="bank-delete-warning" (cancelDeleteBank)="cancelProcess()" (deleteBank)="deleteBank()"/>
+    <app-monthly-amount-area class="monthly-amount-wrapper" [class.hide]="updatingBankIndex === null" [bank]="updatingBankIndex !== null ? banks[updatingBankIndex]: null"/>
+  </div>
+

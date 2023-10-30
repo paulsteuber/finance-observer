@@ -1,14 +1,37 @@
+.app-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 1rem;
+  background-color: white;
+  box-shadow: 0 3px 5px 1px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+}
+.export-wrapper {
+  display: grid;
+  place-items: end;
+}
+.page-logo-wrapper {
+  display: grid;
+  place-items: center;
+}
 .import-button {
   display: grid;
   place-items: center;
+  height: 100%;
   grid-template-columns: 1fr;
   padding: 0;
   border-width: 0;
+  cursor: pointer;
   > * {
     grid-column: 1;
     grid-row: 1;
   }
   input {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
     opacity: 0;
   }
 }

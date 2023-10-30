@@ -73,10 +73,6 @@
       "color": "#005CBF"
     },
     {
-      "name": "Raiffeisen Landesbank Oberösterreich (RLBOÖ)",
-      "color": "#0089D0"
-    },
-    {
       "name": "Hypo Tirol Bank",
       "color": "#003366"
     },
@@ -91,6 +87,14 @@
     {
       "name": "Amazon",
       "color": "#ff9900"
+    },
+    {
+      "name": "Trade Rebulic",
+      "color": "#000000"
+    },
+    {
+      "name": "Berliner Sparkasse",
+      "color": "#f60002"
     }
   ]
 }

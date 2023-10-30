@@ -12,6 +12,8 @@ export class BankComponent implements OnInit {
   @Input() index: number = 0;
 
   @Output() bankDetailsChanged = new EventEmitter<Bank>();
+  @Output() deleteBankModal = new EventEmitter();
+  @Output() openAmountUpdaterModal = new EventEmitter();
 
   allBanks = jsonAllBanks;
   bankColor = 'transparent';
@@ -69,6 +71,13 @@ export class BankComponent implements OnInit {
     this.bankColor = matchedBank?.color || 'transparent';
   }
 
+  openDeleteBankModal() {
+    this.deleteBankModal.emit();
+  }
+
+  openAmountUpdater() {
+    this.openAmountUpdaterModal.emit();
+  }
   ngOnInit() {
     this.updatedBankColor();
   }

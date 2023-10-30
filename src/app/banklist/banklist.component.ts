@@ -13,10 +13,12 @@ export class BanklistComponent {
 
   allBanks = jsonAllBanks;
   banks: Bank[] = [];
+  deleteBankIndex: number | null = null;
+  updatingBankIndex: number | null = null;
 
   addNewBank() {
     this.banks.push({
-      name: 'Commerzbank',
+      name: '',
       individualName: '',
     });
 
@@ -28,6 +30,26 @@ export class BanklistComponent {
 
     this.somethingChanged.emit(this.banks);
   }
+
+  openDeleteBankModal(index: number) {
+    this.deleteBankIndex = index;
+  }
+  cancelProcess() {
+    this.deleteBankIndex = null;
+  }
+  deleteBank() {
+    this.banks = this.deleteBankIndex
+      ? this.banks.filter((bank, index) => index !== this.deleteBankIndex)
+      : this.banks;
+    this.deleteBankIndex = null;
+    this.somethingChanged.emit(this.banks);
+  }
+
+  openAmountUpdater(index: number) {
+    this.updatingBankIndex = index;
+    alert(`amount updater ${index}`);
+  }
+
   ngOnInit() {
     this.banks = this.userBankData || [];
   }
