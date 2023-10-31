@@ -95,6 +95,10 @@
     {
       "name": "Berliner Sparkasse",
       "color": "#f60002"
+    },
+    {
+      "name": "Scalable Capital",
+      "color": "#28ebcf"
     }
   ]
 }

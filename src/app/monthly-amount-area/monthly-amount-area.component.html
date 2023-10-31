@@ -1,1 +1,43 @@
-<p>monthly-amount-area works!</p>
+<div class="amount-updater">
+  <div class="au-header">
+    <div class="bank-names flex-align-center">
+      <h2>{{bank?.name}}</h2>
+      <p *ngIf="bank?.individualName?.length">({{bank?.individualName}})</p>
+    </div>
+  </div>
+  <div class="add-year-wrapper">
+    <input pattern="[1-2][90][0-9][0-9]" placeholder="Jahreszahl" type="text" required [(ngModel)]="nextYearToAdd" [value]="nextYearToAdd" (keyup)="yearValidationDirect()" (blur)="yearValidationDelay()"/>
+    <button type="submit" (click)="addYear()">Jahr hinzufügen</button>
+  </div>
+  <div class="au-table" *ngIf="bank !== null && clonedBank !== null">
+    <div class="year-entry"
+    *ngFor="let year of sortedBalanceByYear(); let yearIndex = index"
+    [class.open]="currentOpenYearIndex === yearIndex">
+
+      <h3 class="year-title" (click)="toggleYear(yearIndex)">{{year.year}}</h3>
+      <div class="year-entry-inner">
+        <div class="year-table">
+          <div class="month" *ngFor="let month of year.months ; let monthIndex = index">
+            <p class="month-name">{{langMonths.shortMonths[monthIndex]}}</p>
+            <input class="month-amount-input" type="text"
+            [value]="this.bank.monthlyBalances[year.year].months[monthIndex]"
+            (focus)="onMonthlyBalanceFocus($event)"
+
+            (blur)="onMonthlyBalanceEdit($event, monthIndex, year.year)">
+
+
+            {{this.bank.monthlyBalances[year.year].months[monthIndex]}}
+          </div>
+          <div class="year-footer">
+            <button type="button" (click)="saveYearChanges()">Speichern</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="au-footer">
+    <button type="button" class="close-amount-updater" (click)="closeAmountUpdater()">Zurück zur Übersicht</button>
+  </div>
+</div>
+

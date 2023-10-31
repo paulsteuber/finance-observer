@@ -3,7 +3,7 @@
   <div class="bank-inner">
     <div class="bank-header flex-align-center ">
       <div class="bank-color-circle" [style.background-color]="bankColor"></div>
-      <div class="bank-name-wrapper" [class.is-focused]="isBankNameFocused" [attr.data-recommendated-bank-name]="recommendatedBankName">
+      <div class="bank-name-wrapper" [class.is-focused]="isBankNameFocused" [attr.data-recommendated-bank-name]="recommendedBankName">
         <input type="text" class="bank-name" placeholder="Name der Bank" [(ngModel)]="bank.name" (input)="onBankNameChanged()" (focus)="onBankNameFocus(true)" (blur)="onBankNameFocus(false)" (keydown)="onBankNameKeyDown($event)"/>
       </div>
       <button class="delete fo-button fo-warning" (click)="openDeleteBankModal()">Delete Bank</button>

@@ -20,6 +20,7 @@ export class BanklistComponent {
     this.banks.push({
       name: '',
       individualName: '',
+      monthlyBalances: {},
     });
 
     this.somethingChanged.emit(this.banks);
@@ -38,16 +39,27 @@ export class BanklistComponent {
     this.deleteBankIndex = null;
   }
   deleteBank() {
-    this.banks = this.deleteBankIndex
-      ? this.banks.filter((bank, index) => index !== this.deleteBankIndex)
-      : this.banks;
+    this.banks =
+      this.deleteBankIndex !== null
+        ? this.banks.filter((bank, index) => index !== this.deleteBankIndex)
+        : this.banks;
     this.deleteBankIndex = null;
     this.somethingChanged.emit(this.banks);
   }
 
   openAmountUpdater(index: number) {
     this.updatingBankIndex = index;
-    alert(`amount updater ${index}`);
+  }
+
+  closeAmountUpdater() {
+    this.updatingBankIndex = null;
+  }
+
+  updateBankAmount(updatedBank: Bank) {
+    if (this.updatingBankIndex !== null) {
+      this.banks[this.updatingBankIndex] = updatedBank;
+      this.somethingChanged.emit(this.banks);
+    }
   }
 
   ngOnInit() {

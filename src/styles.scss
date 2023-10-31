@@ -36,7 +36,7 @@ input[type="text"]:not(:focus) {
 
 .blured {
   pointer-events: none;
-  filter: blur(3px);
+  filter: blur(4px) saturate(0.75);
 }
 
 .fo-button {

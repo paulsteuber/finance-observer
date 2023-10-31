@@ -5,6 +5,11 @@
         (bankDetailsChanged)="updateBankDetails(i, $event)"  (deleteBankModal)="openDeleteBankModal(i)" (openAmountUpdaterModal)="openAmountUpdater(i)"/>
     </div>
     <app-delete-bank [class.hide]="deleteBankIndex === null" class="bank-delete-warning" (cancelDeleteBank)="cancelProcess()" (deleteBank)="deleteBank()"/>
-    <app-monthly-amount-area class="monthly-amount-wrapper" [class.hide]="updatingBankIndex === null" [bank]="updatingBankIndex !== null ? banks[updatingBankIndex]: null"/>
+    <app-monthly-amount-area class="monthly-amount-wrapper"
+     [class.hide]="updatingBankIndex === null"
+     [bank]="updatingBankIndex !== null ? banks[updatingBankIndex] : null"
+     (closeWindow)="closeAmountUpdater()"
+     (amountChanged)="updateBankAmount($event)"
+     />
   </div>
 
