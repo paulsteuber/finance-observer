@@ -23,7 +23,7 @@ export class MonthlyAmountInputComponent {
 
   onFocus(event: Event) {
     const inputElement = event.target as HTMLInputElement;
-    if (inputElement.value === '0,00') {
+    if (inputElement.value === '0,00 €') {
       inputElement.select();
     }
   }
@@ -51,10 +51,10 @@ export class MonthlyAmountInputComponent {
   }
 
   floatToString(float: number): string {
-    return float.toLocaleString('de-DE', {
+    return `${float.toLocaleString('de-DE', {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
-    });
+    })} €`;
   }
 
   ngOnInit() {

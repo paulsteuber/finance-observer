@@ -9,9 +9,8 @@
   <div class="au-table" *ngIf="bank !== null">
     <div class="year-entry"
     *ngFor="let year of sortedBalanceByYear(); let yearIndex = index"
-    [class.open]="currentOpenYearIndex === yearIndex">
-
-      <h3 class="year-title" (click)="toggleYear(yearIndex)">{{year.year}}</h3>
+    [class.open]="currentOpenYearIndex === yearIndex"  (click)="toggleYear(yearIndex)">
+      <h3 class="year-title">{{year.year}}</h3>
       <div class="year-entry-inner">
         <div class="year-table">
           <div class="month" *ngFor="let month of year.months ; let monthIndex = index">

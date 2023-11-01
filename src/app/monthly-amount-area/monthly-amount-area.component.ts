@@ -26,8 +26,6 @@ export class MonthlyAmountAreaComponent {
   clonedBank = {} as Bank;
   currentOpenYearIndex = 0;
 
-  hasUnsavedChanges = false;
-
   constructor() {}
 
   sortedBalanceByYear = computed(() => {
@@ -77,7 +75,7 @@ export class MonthlyAmountAreaComponent {
   }
 
   sortBalanceByYear(): SortedYears {
-    const yearList = this.bank?.monthlyBalances;
+    const yearList = this.clonedBank?.monthlyBalances;
     if (!yearList) return [] as SortedYears;
 
     const yearListArray: SortedYears = Object.keys(yearList).map((key) => ({
@@ -117,6 +115,8 @@ export class MonthlyAmountAreaComponent {
   }
   ngOnChanges() {
     this.clonedBank = JSON.parse(JSON.stringify(this.bank));
+    console.log(this.clonedBank);
+    this.sortBalanceByYear();
   }
   ngOnInit() {}
 }
