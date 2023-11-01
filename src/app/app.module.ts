@@ -9,6 +9,7 @@ import { BankAmountComponent } from './bank-amount/bank-amount.component';
 import { FormsModule } from '@angular/forms';
 import { DeleteBankComponent } from './delete-bank/delete-bank.component';
 import { MonthlyAmountAreaComponent } from './monthly-amount-area/monthly-amount-area.component';
+import { MonthlyAmountInputComponent } from './monthly-amount-input/monthly-amount-input.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { MonthlyAmountAreaComponent } from './monthly-amount-area/monthly-amount
     BankAmountComponent,
     DeleteBankComponent,
     MonthlyAmountAreaComponent,
+    MonthlyAmountInputComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

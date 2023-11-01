@@ -28,6 +28,10 @@ main {
 }
 input {
   font-family: Rubik;
+  border-radius: 0.5rem;
+  border: 1px solid #b6b6b6;
+  outline: none;
+  padding: 0.25rem;
 }
 input[type="text"]:not(:focus) {
   border-color: transparent;
@@ -59,4 +63,11 @@ input[type="text"]:not(:focus) {
 }
 .fo-button.fo-warning {
   background-color: rgb(182, 69, 69);
+}
+.fo-button.fo-disabled {
+  background-color: #b6b6b6;
+  cursor: initial;
+  &:hover {
+    box-shadow: 0 5px 10px 2px rgba(0, 0, 0, 0.1);
+  }
 }

@@ -5,11 +5,8 @@
       <p *ngIf="bank?.individualName?.length">({{bank?.individualName}})</p>
     </div>
   </div>
-  <div class="add-year-wrapper">
-    <input pattern="[1-2][90][0-9][0-9]" placeholder="Jahreszahl" type="text" required [(ngModel)]="nextYearToAdd" [value]="nextYearToAdd" (keyup)="yearValidationDirect()" (blur)="yearValidationDelay()"/>
-    <button type="submit" (click)="addYear()">Jahr hinzufügen</button>
-  </div>
-  <div class="au-table" *ngIf="bank !== null && clonedBank !== null">
+
+  <div class="au-table" *ngIf="bank !== null">
     <div class="year-entry"
     *ngFor="let year of sortedBalanceByYear(); let yearIndex = index"
     [class.open]="currentOpenYearIndex === yearIndex">
@@ -19,17 +16,7 @@
         <div class="year-table">
           <div class="month" *ngFor="let month of year.months ; let monthIndex = index">
             <p class="month-name">{{langMonths.shortMonths[monthIndex]}}</p>
-            <input class="month-amount-input" type="text"
-            [value]="this.bank.monthlyBalances[year.year].months[monthIndex]"
-            (focus)="onMonthlyBalanceFocus($event)"
-
-            (blur)="onMonthlyBalanceEdit($event, monthIndex, year.year)">
-
-
-            {{this.bank.monthlyBalances[year.year].months[monthIndex]}}
-          </div>
-          <div class="year-footer">
-            <button type="button" (click)="saveYearChanges()">Speichern</button>
+            <app-monthly-amount-input [value]="bank.monthlyBalances[year.year].months[monthIndex]" (valueChanged)="inputValueChanged(year.year, monthIndex, $event)"/>
           </div>
         </div>
       </div>
@@ -37,7 +24,13 @@
   </div>
 
   <div class="au-footer">
-    <button type="button" class="close-amount-updater" (click)="closeAmountUpdater()">Zurück zur Übersicht</button>
+    <div class="add-year-wrapper">
+      <input pattern="[1-2][90][0-9][0-9]" placeholder="Jahreszahl" type="text" required [(ngModel)]="nextYearToAdd"
+        [value]="nextYearToAdd" (keyup)="yearValidationDirect()" (blur)="yearValidationDelay()" />
+      <button  class="fo-button" type="submit" (click)="addYear()">Jahr hinzufügen</button>
+    </div>
+    <button type="button" class="fo-button fo-secondary close-amount-updater" (click)="closeAmountUpdater()">zurück zur Übersicht</button>
+    <button class="fo-button save-changes" type="button" (click)="saveAllChanges()">Änderungen speichern</button>
   </div>
 </div>
 

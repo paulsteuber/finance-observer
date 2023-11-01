@@ -23,8 +23,10 @@ export class MonthlyAmountAreaComponent {
   langMonths = lang;
 
   nextYearToAdd = `${new Date().getFullYear()}`;
-  clonedBank = this.bank;
+  clonedBank = {} as Bank;
   currentOpenYearIndex = 0;
+
+  hasUnsavedChanges = false;
 
   constructor() {}
 
@@ -90,25 +92,10 @@ export class MonthlyAmountAreaComponent {
     return sortedYears;
   }
 
-  onMonthlyBalanceFocus(event: Event) {
-    const inputElement = event.target as HTMLInputElement;
-    if (inputElement.value === '0') {
-      inputElement.select();
-    }
-  }
-
-  onMonthlyBalanceEdit(event: Event, monthIndex: number, year: string) {
-    const inputElement = event.target as HTMLInputElement;
-    const amount = this.stringToFloat(inputElement.value);
-
-    if (this.clonedBank?.monthlyBalances) {
-      this.clonedBank.monthlyBalances[year].months[monthIndex] = amount;
-      console.log(monthIndex, this.bank?.monthlyBalances);
-    }
-  }
-
-  saveYearChanges() {
-    console.log('SAVE');
+  saveAllChanges() {
+    if (!this.clonedBank.monthlyBalances) return;
+    this.clonedBank && this.amountChanged.emit(this.clonedBank);
+    console.log('SAVE', this.clonedBank);
   }
 
   stringToFloat(inputString: string) {
@@ -123,8 +110,13 @@ export class MonthlyAmountAreaComponent {
     }
     return result;
   }
+
+  inputValueChanged(year: string, monthIndex: number, amount: number) {
+    if (!this.clonedBank.monthlyBalances) return;
+    this.clonedBank.monthlyBalances[year].months[monthIndex] = amount;
+  }
   ngOnChanges() {
-    this.clonedBank = this.bank;
+    this.clonedBank = JSON.parse(JSON.stringify(this.bank));
   }
   ngOnInit() {}
 }

@@ -3,18 +3,53 @@
   border-radius: 1rem;
   background-color: #e8eaed;
   padding: 1.5rem 2rem;
-  overflow-y: scroll;
-  max-height: 80vh;
+  position: relative;
 }
 .bank-names {
   gap: 0.5rem;
+  h2 {
+    margin: 0;
+  }
 }
 .au-header {
   margin-bottom: 1.5rem;
 }
+.au-footer {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 0.5rem 0;
+
+  .close-amount-updater {
+    grid-row: 2;
+    grid-column: 1;
+  }
+  .save-changes {
+    grid-row: 2;
+    grid-column: 4;
+  }
+  .add-year-wrapper {
+    display: flex;
+    border-radius: 1rem;
+    border: 2px solid #2687ad;
+    padding: 0.25rem;
+    grid-column: 3 / 5;
+    grid-row: 1;
+    justify-content: space-between;
+    input:not(:focus) {
+      color: #b6b6b6;
+      background-color: white;
+    }
+  }
+}
 .au-table {
   display: grid;
   gap: 1.5rem;
+  max-height: calc(75vh - 8rem);
+  overflow-y: scroll;
+  padding: 1rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
 }
 
 .year-entry-inner {
@@ -68,8 +103,6 @@
   &.open {
     .year-entry-inner {
       grid-template-rows: 1fr;
-
-      padding: 2rem 0;
     }
     .year-table {
       padding: 1rem;
